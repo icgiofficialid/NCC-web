@@ -1,0 +1,347 @@
+/* ================================================================
+   NCC index.css
+   National Cultural Competition — warm amber / rose / gold palette
+   Terinspirasi dari batik, tenun, dan warisan budaya Nusantara
+   ================================================================ */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cinzel:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* ── Dark mode (default) — NCC warm cultural palette ── */
+    --background: 24 18% 5%;           /* very dark warm brown */
+    --foreground: 36 30% 95%;          /* warm off-white */
+
+    --surface: 24 16% 8%;
+    --surface-foreground: 36 30% 95%;
+
+    --panel: 24 14% 10%;
+    --panel-foreground: 36 30% 95%;
+
+    --card: 24 16% 8%;
+    --card-foreground: 36 30% 95%;
+
+    --popover: 24 14% 10%;
+    --popover-foreground: 36 30% 95%;
+
+    /* Primary: amber gold */
+    --primary: 36 100% 52%;
+    --primary-foreground: 24 18% 5%;
+
+    --secondary: 24 14% 14%;
+    --secondary-foreground: 36 30% 95%;
+
+    --muted: 24 12% 13%;
+    --muted-foreground: 32 15% 52%;
+
+    --accent: 350 40% 18%;
+    --accent-foreground: 36 30% 95%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 30 18% 18%;
+    --input: 24 14% 11%;
+    --ring: 36 100% 52%;
+
+    --radius: 0.75rem;
+
+    --gradient-mesh:
+      radial-gradient(ellipse at 20% 0%,   hsl(36 100% 52% / 0.07) 0%, transparent 55%),
+      radial-gradient(ellipse at 80% 100%, hsl(350 90% 55% / 0.05) 0%, transparent 55%),
+      radial-gradient(ellipse at 50% 50%,  hsl(22 80% 40% / 0.03) 0%, transparent 60%);
+
+    --shadow-glow:  0 0 0 1px hsl(36 100% 52% / 0.12), 0 24px 64px hsl(0 0% 0% / 0.75);
+    --shadow-panel: 0 8px 48px hsl(0 0% 0% / 0.8), 0 1px 0 hsl(30 18% 20% / 0.5);
+
+    --sidebar-background: 24 18% 5%;
+    --sidebar-foreground: 36 30% 95%;
+    --sidebar-primary: 36 100% 52%;
+    --sidebar-primary-foreground: 24 18% 5%;
+    --sidebar-accent: 24 14% 14%;
+    --sidebar-accent-foreground: 36 30% 95%;
+    --sidebar-border: 30 18% 18%;
+    --sidebar-ring: 36 100% 52%;
+  }
+
+  .dark {
+    --sidebar-background: 24 18% 5%;
+    --sidebar-foreground: 36 30% 95%;
+    --sidebar-primary: 36 100% 52%;
+    --sidebar-primary-foreground: 24 18% 5%;
+    --sidebar-accent: 24 14% 14%;
+    --sidebar-accent-foreground: 36 30% 95%;
+    --sidebar-border: 30 18% 18%;
+    --sidebar-ring: 36 100% 52%;
+  }
+}
+
+/* ── LIGHT MODE ── */
+.light {
+  --background: 36 35% 96%;
+  --foreground: 24 40% 10%;
+
+  --surface: 0 0% 100%;
+  --surface-foreground: 24 40% 10%;
+
+  --panel: 36 25% 92%;
+  --panel-foreground: 24 40% 10%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 24 40% 10%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 24 40% 10%;
+
+  /* Primary lebih gelap agar kontras di bg terang */
+  --primary: 32 95% 38%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 36 22% 88%;
+  --secondary-foreground: 24 40% 10%;
+
+  --muted: 36 18% 89%;
+  --muted-foreground: 30 20% 32%;
+
+  --accent: 36 30% 84%;
+  --accent-foreground: 24 40% 10%;
+
+  --destructive: 0 72% 45%;
+  --destructive-foreground: 0 0% 100%;
+
+  --border: 32 20% 70%;
+  --input: 36 22% 91%;
+  --ring: 32 95% 38%;
+
+  --gradient-mesh:
+    radial-gradient(ellipse at 20% 0%,   hsl(36 100% 52% / 0.06) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 100%, hsl(350 80% 50% / 0.04) 0%, transparent 55%);
+
+  --shadow-panel: 0 4px 24px hsl(24 30% 15% / 0.09), 0 1px 0 hsl(32 20% 70%);
+  --shadow-glow:  0 0 0 1px hsl(32 95% 38% / 0.2), 0 8px 32px hsl(32 95% 38% / 0.08);
+
+  --sidebar-background: 36 28% 93%;
+  --sidebar-foreground: 24 40% 10%;
+  --sidebar-primary: 32 95% 38%;
+  --sidebar-primary-foreground: 0 0% 100%;
+  --sidebar-accent: 36 22% 88%;
+  --sidebar-accent-foreground: 24 40% 10%;
+  --sidebar-border: 32 20% 70%;
+  --sidebar-ring: 32 95% 38%;
+}
+
+@layer base {
+  * { @apply border-border; }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    background-image: var(--gradient-mesh);
+    background-attachment: fixed;
+    letter-spacing: -0.01em;
+  }
+
+  section[id] { scroll-margin-top: 6rem; }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cinzel', serif;
+    letter-spacing: 0.02em;
+  }
+
+  /* Batik-inspired diagonal grid texture */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(
+        60deg,
+        hsl(36 100% 52% / 0.018) 0px,
+        hsl(36 100% 52% / 0.018) 1px,
+        transparent 1px,
+        transparent 32px
+      ),
+      repeating-linear-gradient(
+        -60deg,
+        hsl(350 90% 55% / 0.015) 0px,
+        hsl(350 90% 55% / 0.015) 1px,
+        transparent 1px,
+        transparent 32px
+      );
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* Light mode — texture lebih subtle */
+  .light body::before {
+    background-image:
+      repeating-linear-gradient(
+        60deg,
+        hsl(32 80% 40% / 0.05) 0px,
+        hsl(32 80% 40% / 0.05) 1px,
+        transparent 1px,
+        transparent 32px
+      ),
+      repeating-linear-gradient(
+        -60deg,
+        hsl(350 70% 45% / 0.04) 0px,
+        hsl(350 70% 45% / 0.04) 1px,
+        transparent 1px,
+        transparent 32px
+      );
+  }
+
+  body > * {
+    position: relative;
+    z-index: 1;
+  }
+}
+
+@layer components {
+  .tech-shell {
+    @apply relative overflow-hidden;
+    background: hsl(var(--surface) / 0.6);
+    border: 1px solid hsl(var(--border) / 0.9);
+    box-shadow: var(--shadow-panel);
+    backdrop-filter: blur(20px) saturate(1.15);
+    -webkit-backdrop-filter: blur(20px) saturate(1.15);
+  }
+
+  /* Top shimmer — amber instead of cyan */
+  .tech-shell::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, hsl(36 100% 52% / 0.04) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .light .tech-shell {
+    background: hsl(var(--surface) / 0.88);
+    border-color: hsl(var(--border) / 1);
+    box-shadow: var(--shadow-panel);
+  }
+
+  .glow-card {
+    @apply tech-shell rounded-2xl;
+    transition: box-shadow 0.4s ease, border-color 0.4s ease, transform 0.25s ease;
+  }
+
+  .glow-card:hover {
+    border-color: hsl(36 100% 52% / 0.4);
+    box-shadow: var(--shadow-panel), 0 0 0 1px hsl(36 100% 52% / 0.12);
+  }
+
+  .light .glow-card:hover {
+    border-color: hsl(32 95% 38% / 0.5);
+    box-shadow: var(--shadow-panel), 0 0 0 1px hsl(32 95% 38% / 0.15);
+  }
+
+  /* cultural-shell — dipakai di EventDetail & NCC pages */
+  .cultural-shell {
+    @apply relative overflow-hidden;
+    background: hsl(var(--surface) / 0.6);
+    border: 1px solid hsl(var(--border) / 0.9);
+    box-shadow: var(--shadow-panel);
+    backdrop-filter: blur(20px) saturate(1.15);
+    -webkit-backdrop-filter: blur(20px) saturate(1.15);
+  }
+
+  .light .cultural-shell {
+    background: hsl(var(--surface) / 0.92);
+    border-color: hsl(var(--border) / 1);
+  }
+
+  /* Scan line — amber tone */
+  .scan-line { position: relative; overflow: hidden; }
+  .scan-line::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(36 100% 52% / 0.7), hsl(350 90% 55% / 0.5), transparent);
+    animation: scan 5s ease-in-out infinite 1s;
+  }
+
+  .badge-pill {
+    @apply inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-xs font-semibold uppercase tracking-widest;
+    background: hsl(36 100% 52% / 0.09);
+    border-color: hsl(36 100% 52% / 0.28);
+    color: hsl(36 100% 52%);
+  }
+
+  .light .badge-pill {
+    background: hsl(36 90% 88%);
+    border-color: hsl(32 70% 52%);
+    color: hsl(32 95% 24%);
+  }
+
+  .section-label {
+    @apply text-xs font-semibold uppercase tracking-[0.4em];
+    color: hsl(36 100% 52%);
+  }
+
+  .light .section-label {
+    color: hsl(32 95% 30%);
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(36 100% 55%) 0%, hsl(350 90% 58%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .light .gradient-text {
+    background: linear-gradient(135deg, hsl(32 95% 32%) 0%, hsl(350 85% 40%) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .font-display   { font-family: 'Cinzel', serif; letter-spacing: 0.04em; }
+  .font-body      { font-family: 'DM Sans', sans-serif; }
+  .font-mono-sci  { font-family: 'Space Grotesk', monospace; }
+}
+
+/* ── Keyframes ── */
+@keyframes glowShift {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.45; }
+  33%       { transform: translate(-50px, 35px) scale(1.25); opacity: 0.75; }
+  66%       { transform: translate(35px, -25px) scale(0.8); opacity: 0.35; }
+}
+
+@keyframes scan {
+  0%   { transform: translateX(-100%); opacity: 0; }
+  15%  { opacity: 1; }
+  85%  { opacity: 1; }
+  100% { transform: translateX(300%); opacity: 0; }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.3; transform: scale(0.75); }
+}
+
+@keyframes rotateCW  { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes rotateCCW { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+/* ── Batik shimmer — ornamental keyframe ── */
+@keyframes batikShimmer {
+  0%, 100% { opacity: 0.015; }
+  50%       { opacity: 0.035; }
+}
